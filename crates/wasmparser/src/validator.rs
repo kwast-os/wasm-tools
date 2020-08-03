@@ -23,9 +23,13 @@ use crate::{BinaryReaderError, GlobalType, MemoryType, Range, Result, TableType,
 use crate::{DataKind, ElementItem, ElementKind, InitExpr, Instance, Operator};
 use crate::{Export, ExportType, FunctionBody, OperatorsReader, Parser, Payload};
 use crate::{FuncType, ResizableLimits, SectionReader, SectionWithLimitedItems};
-use std::collections::{HashMap, HashSet};
-use std::mem;
-use std::sync::Arc;
+use hashbrown::HashSet;
+use hashbrown::HashMap;
+use core::mem;
+use alloc::string::String;
+use alloc::sync::Arc;
+use alloc::vec::Vec;
+use alloc::string::ToString;
 
 /// Test whether the given buffer contains a valid WebAssembly function.
 /// The resources parameter contains all needed data to validate the operators.
@@ -1813,8 +1817,8 @@ impl<T> Def<T> {
 }
 
 mod arc {
-    use std::ops::Deref;
-    use std::sync::Arc;
+    use core::ops::Deref;
+    use alloc::sync::Arc;
 
     pub struct MaybeOwned<T> {
         owned: bool,

@@ -13,9 +13,12 @@
  * limitations under the License.
  */
 
-use std::error::Error;
-use std::fmt;
-use std::result;
+//use std::error::Error;
+use core::fmt;
+use core::result;
+use alloc::boxed::Box;
+use alloc::string::String;
+use alloc::string::ToString;
 
 #[derive(Debug, Clone)]
 pub struct BinaryReaderError {
@@ -34,7 +37,7 @@ pub(crate) struct BinaryReaderErrorInner {
 
 pub type Result<T> = result::Result<T, BinaryReaderError>;
 
-impl Error for BinaryReaderError {}
+//impl Error for BinaryReaderError {}
 
 impl fmt::Display for BinaryReaderError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

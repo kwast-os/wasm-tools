@@ -2,7 +2,7 @@ use super::ModuleState;
 use crate::operators_validator::{FunctionEnd, OperatorValidator};
 use crate::{BinaryReaderError, Result, Type};
 use crate::{Operator, WasmModuleResources, WasmTypeDef};
-use std::sync::Arc;
+use alloc::sync::Arc;
 
 /// Validation context for a WebAssembly function.
 ///
